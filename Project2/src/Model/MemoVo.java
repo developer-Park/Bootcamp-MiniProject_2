@@ -75,7 +75,7 @@ public class MemoVo {
         return
                 "count=" + count +
                         ", Name='" + name + '\'' +
-                        ", Passowrd='" + password + '\'' +
+                        ", Password='" + password + '\'' +
                         ", Memo='" + memo + '\'' +
                         ", CreationTime=" + createdAt +
                         '}';
