@@ -51,8 +51,8 @@ public class UI {
                 String customerPhoneNumber = sc.next();
                 customerService.makingReservation(roomSize, customerName, customerPhoneNumber, hotel, hotelService.addRoom());
             } else if (a == 3) {
-                System.out.println("전체객실 조회");
-                hotelService.getAllList();
+                System.out.println("전체예약 조회");
+                hotelService.getAllReservationList();
             } else if (a == 4) {
                 System.out.print("예약번호 : ");
                 String reservationNumber = sc.next();
@@ -65,8 +65,8 @@ public class UI {
 
             } else if (a == 6) {
                 break;
-            } else if (a == 0) {
-                otherService.getSevenDate();
+            } else if (a == 7) {
+                hotelService.getAllRoomList();
             }
         }
 

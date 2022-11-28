@@ -34,11 +34,7 @@ public class CustomerService {
         customers.add(customer);
         System.out.println("Success add entity.Customer. Thanks.");
     }
-
-
-
     public void makingReservation(String roomSize, String customerName, String customerPhoneNumber, Hotel hotel, List<Room> rooms) {
-
         if (OtherService.validPhoneNumber(customerPhoneNumber)) {
             for (Room room : rooms) {
                 if (Objects.equals(roomSize, room.getRoomSize())) {
@@ -57,27 +53,23 @@ public class CustomerService {
                                         System.out.println("호텔 돈" + hotel.getHotelIncome());
                                         System.out.println("Success Booking." + reservations + room.getRoomNumber());
                                         break;
-
                                     } else {
                                         System.out.println("Failed Money");
+
                                     }
                                 } else {
                                     System.out.println("Failed phone number");
-
                                 }
                             } else {
                                 System.out.println("Failed Name");
-
                             }
                         }
-                        break;
                     } else {
-                        System.out.println("예약된방");
-                    }
+                        System.out.println("방 이미 예약됨");
+                    }break;
                 }
             }
         }
-        //  }
     }
 
     public void checkCustomerOwnReservation(String reservationNumber) {

@@ -15,33 +15,25 @@ public class HotelService {
         this.customerService = customerService;
     }
 
-    public void getAllList() {
+    public void getAllRoomList() {
+        System.out.println(rooms);
+    }
+
+    public void getAllReservationList() {
         System.out.println(customerService.reservationList());
     }
 
     public ArrayList<Room> addRoom() {
         Room singleroom = new Room(101, "single", 500);
-        Room singleroom1 = new Room(102, "single", 500);
-        Room singleroom2 = new Room(103, "single", 500);
         Room queenroom = new Room(201, "queen", 1000);
-        Room queenroom1 = new Room(202, "queen", 1000);
-        Room queenroom2 = new Room(203, "queen", 1000);
-        Room queenroom3 = new Room(204, "queen", 1000);
         Room kingroom = new Room(301, "king", 2000);
-        Room kingroom1 = new Room(302, "king", 2000);
-        Room kingroom2 = new Room(303, "king", 2000);
-
+        Room suiteroom = new Room(301, "suite", 3000);
+        Room doubleroom = new Room(301, "double", 2500);
         rooms.add(singleroom);
-        rooms.add(singleroom1);
-        rooms.add(singleroom2);
         rooms.add(queenroom);
-        rooms.add(queenroom1);
-        rooms.add(queenroom2);
-        rooms.add(queenroom3);
         rooms.add(kingroom);
-        rooms.add(kingroom1);
-        rooms.add(kingroom2);
-
+        rooms.add(suiteroom);
+        rooms.add(doubleroom);
         System.out.println("Success add room.");
         return rooms;
     }

@@ -20,9 +20,6 @@ public class OtherService {
         }
         System.out.println(dateList);
     }
-
-
-
     public static boolean validPhoneNumber(String number) {
         Pattern pattern = Pattern.compile("\\d{3}-\\d{4}-\\d{4}");
         Matcher matcher = pattern.matcher(number);
