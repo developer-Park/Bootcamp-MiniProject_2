@@ -10,15 +10,11 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Memolist {
-
     private Scanner sc = new Scanner(System.in);
-
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private List<MemoVo> memos;
-
-    private int count=0;
+    private int count = 0;
 
     public Memolist() {
         this.memos = new ArrayList<>();
@@ -35,6 +31,7 @@ public class Memolist {
             System.out.println("4.Delete");
             System.out.println("5.Exit");
             System.out.print("Enter Input : ");
+
             int a = sc.nextInt();
             if (a == 1) {
                 System.out.print("Enter name : ");
@@ -44,29 +41,30 @@ public class Memolist {
                 System.out.print("Enter memo : ");
                 String memo = sc.next();
                 addMemo(name, password, memo);
+
             } else if (a == 2) {
                 System.out.println("Check memo list ");
                 System.out.println("");
                 checkMemo();
+
             } else if (a == 3) {
-                System.out.print("Enter Id : ");
+                System.out.print("Enter Count : ");
                 int id = sc.nextInt();
                 updateMemo(id);
 
             } else if (a == 4) {
-                System.out.print("Enter Id : ");
+                System.out.print("Enter Count : ");
                 int id = sc.nextInt();
                 deleteMemo(id);
 
             } else if (a == 5) {
                 break;
+
             } else {
-                System.out.print("Error : No option ");
-
-
+                //System.out.print("Error : No option ");
+                indexChecker();
             }
         }
-
     }
 
     private void deleteMemo(int id) {
@@ -75,11 +73,12 @@ public class Memolist {
             if (id == memoVo.getCount()) {
                 System.out.print("Enter Password for Delete : ");
                 String password = sc.next();
+
                 if (Objects.equals(password, memoVo.getPassword())) {
-                    memos.remove(id-1);
+                    memos.remove(id - 1);
                     System.out.print("Success Delete!!");
+                    break;
                 }
-                break;
             }
         }
         for (int i = 0; i <= memos.size() - 1; i++) {
@@ -87,12 +86,10 @@ public class Memolist {
                 memos.get(i).setCount(1);
 
             } else {
-                memos.get(i).setCount(i+1);
+                memos.get(i).setCount(i + 1);
             }
-
-        }count= count -1;
-
-
+        }
+        count = count - 1;
     }
 
 
@@ -109,32 +106,19 @@ public class Memolist {
                     String memo = sc.next();
                     memoVo.updateMemo(memo);
                     memoVo.setCreatedAt(LocalDateTime.now());
-
                     System.out.println("Success Update");
                     break;
-                } else {
-
-                    System.out.println("Error: Password");
                 }
-
-
             }
-
         }
     }
 
 
     private void addMemo(String name, String password, String memo) {
-        if(password =true)
-
-
         count++;
-
         MemoVo memoVo = new MemoVo(count, name, password, memo, createdAt);
         memos.add(memoVo);
         System.out.println("Success add information. Thanks.");
-
-
     }
 
     private void checkMemo() {
@@ -143,7 +127,14 @@ public class Memolist {
         }
     }
 
-
+    private void indexChecker() {
+        for (int i = 0; i < memos.size(); i++) {
+            System.out.println(memos.get(i).getCount());
+        }
+    }
 }
+
+
+
 
 
