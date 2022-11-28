@@ -1,6 +1,7 @@
 package entity;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Reservation {
     private String reservationNumber;
@@ -9,8 +10,9 @@ public class Reservation {
     private String customerPhoneNumber;
     private LocalDateTime reservationCreatedDate;
 
-    public Reservation(String reservationNumber, String roomSize, String customerName, String customerPhoneNumber, LocalDateTime reservationCreatedDate ) {
-        this.reservationNumber = reservationNumber;
+
+    public Reservation(String roomSize, String customerName, String customerPhoneNumber, LocalDateTime reservationCreatedDate ) {
+        this.reservationNumber = UUID.randomUUID().toString();;
         this.roomSize = roomSize;
         this.customerName = customerName;
         this.customerPhoneNumber = customerPhoneNumber;

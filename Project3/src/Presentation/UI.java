@@ -13,8 +13,8 @@ public class UI {
 
         Hotel hotel = new Hotel("A2", 100000, "1111");
         CustomerService customerService = new CustomerService();
-        HotelService hotelService = new HotelService(customerService);
         OtherService otherService = new OtherService();
+        HotelService hotelService = new HotelService(customerService);
         hotelService.addRoom();
 
         while (true) {

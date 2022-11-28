@@ -9,10 +9,13 @@ import java.util.List;
 public class HotelService {
 
     CustomerService customerService;
+
+    OtherService otherService;
     ArrayList<Room> rooms = new ArrayList<>();
 
     public HotelService(CustomerService customerService) {
         this.customerService = customerService;
+
     }
 
     public void getAllRoomList() {
@@ -25,11 +28,13 @@ public class HotelService {
 
     public ArrayList<Room> addRoom() {
         Room singleroom = new Room(101, "single", 500);
+        Room singleroom1 = new Room(101, "single", 500);
         Room queenroom = new Room(201, "queen", 1000);
         Room kingroom = new Room(301, "king", 2000);
         Room suiteroom = new Room(301, "suite", 3000);
         Room doubleroom = new Room(301, "double", 2500);
         rooms.add(singleroom);
+        rooms.add(singleroom1);
         rooms.add(queenroom);
         rooms.add(kingroom);
         rooms.add(suiteroom);

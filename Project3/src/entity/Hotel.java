@@ -8,6 +8,8 @@ public class Hotel {
     public String hotelName;
     private String password;
     private int hotelIncome;
+
+
     public int getHotelIncome() {
         return hotelIncome;
     }
@@ -18,7 +20,6 @@ public class Hotel {
 
     public Hotel(String hotelName, int hotelIncome, String password) {
         this.hotelName = hotelName;
-
         this.hotelIncome = hotelIncome;
         this.password = password;
     }

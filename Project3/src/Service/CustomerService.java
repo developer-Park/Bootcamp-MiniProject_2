@@ -35,41 +35,51 @@ public class CustomerService {
         System.out.println("Success add entity.Customer. Thanks.");
     }
     public void makingReservation(String roomSize, String customerName, String customerPhoneNumber, Hotel hotel, List<Room> rooms) {
-        if (OtherService.validPhoneNumber(customerPhoneNumber)) {
-            for (Room room : rooms) {
-                if (Objects.equals(roomSize, room.getRoomSize())) {
-                    if (Objects.equals(room.getIsBooked(), "false")) {
-                        for (Customer customer : customers) {
-                            if (Objects.equals(customerName, customer.getCustomerName())) {
-                                if (Objects.equals(customerPhoneNumber, customer.getCustomerPhoneNumber())) {
-                                    if (customer.getCustomerMoney() >= room.getRoomCharge()) {
-                                        String reservationNumber = UUID.randomUUID().toString();
-                                        Reservation reservation = new Reservation(reservationNumber, room.getRoomSize(), customer.getCustomerName(), customer.getCustomerPhoneNumber(), createdAt);
-                                        reservations.add(reservation);
-                                        room.setIsBooked("true");
-                                        customer.setCustomerMoney(customer.getCustomerMoney() - room.getRoomCharge());
-                                        hotel.setHotelIncome(hotel.getHotelIncome() + room.getRoomCharge());
-                                        System.out.println("고객 돈" + customer.getCustomerMoney());
-                                        System.out.println("호텔 돈" + hotel.getHotelIncome());
-                                        System.out.println("Success Booking." + reservations + room.getRoomNumber());
-                                        break;
-                                    } else {
-                                        System.out.println("Failed Money");
-
-                                    }
-                                } else {
-                                    System.out.println("Failed phone number");
-                                }
-                            } else {
-                                System.out.println("Failed Name");
-                            }
-                        }
-                    } else {
-                        System.out.println("방 이미 예약됨");
-                    }break;
-                }
+        for (Room room : rooms) { // 룸리스트 돌면서 방찾기
+            if (!Objects.equals(roomSize, room.getRoomSize())) continue;  // 방 사이즈가 다르면 pass
+            if (Objects.equals(room.getIsBooked(), "true"))  { // 방 사이즈가 일치하지만 이미 예약된 경우
+                System.out.println("방 이미 예약됨");
+                break; // 룸리스트 반복문 바로 끝
             }
-        }
+
+            // 이제 방 사이즈도 일치하고, 방도 비어있다!
+            // 손님리스트 돌면서 손님찾고, 예약 시작
+            // 맞는 손님을 찾기보다, 아닌 손님 돌려보내기.
+
+            for (Customer customer : customers) { // 손님리스트 돌면서
+                if (!Objects.equals(customerName, customer.getCustomerName())) continue; // 이름 다르면 pass
+                if (!Objects.equals(customerPhoneNumber, customer.getCustomerPhoneNumber())) continue; // 전번 다르면 pass
+
+                // 이름 전번 다 일치하지만, 돈이 부족한 경우
+                if (customer.getCustomerMoney() < room.getRoomCharge()) {
+                    System.out.println("Not enough money"); //
+                    break; // 손님리스트 반복문 끝
+                }
+
+                // 이름과 전번도 같고 돈도 충분한 경우
+//                String reservationNumber = UUID.randomUUID().toString(); // uuid 발급받아서
+
+                // 예약 생성
+                Reservation reservation = new Reservation(room.getRoomSize(), customer.getCustomerName(), customer.getCustomerPhoneNumber(), createdAt);
+                reservations.add(reservation); // 예약 생성한거 리스트에 추가
+                room.setIsBooked("true"); // 예약상태 트루로 바꿈
+
+                customer.setCustomerMoney(customer.getCustomerMoney() - room.getRoomCharge()); // 손님 돈 계산
+                hotel.setHotelIncome(hotel.getHotelIncome() + room.getRoomCharge()); // 호텔 돈 계산
+
+                // 출력
+                System.out.println("고객 돈" + customer.getCustomerMoney());
+                System.out.println("호텔 돈" + hotel.getHotelIncome());
+                System.out.println("Success Booking." + reservations + room.getRoomNumber());
+
+                break; // 예약 완료. 손님리스트 반복문 끝
+            } // customers 반복문 끝
+
+            // 사이즈 일치하는 빈방 찾았고, 손님리스트 다 돌았지만, 일치하는 손님이 없는 경우.
+            System.out.println("고객 정보를 다시 확인해주세요.");
+            break; // 굳이 다른 방 더 볼 필요 없음.
+
+        } // rooms 반복문 끝
     }
 
     public void checkCustomerOwnReservation(String reservationNumber) {
