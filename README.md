@@ -26,7 +26,7 @@ IDE : IntelliJ 17.03
 - 예약번호로 고객 자신의 예약 조회
 - 예약번호로 고객 자신의 예약 취소
 - 고객전화번호 정규식
-- 예약날
+- 예약날짜 정규식
  
 <img src="https://user-images.githubusercontent.com/83831110/204422563-d171f9e7-47a8-4ac5-97dd-87e3d408c275.png" width="70%" ></a>
 
