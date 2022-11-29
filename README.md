@@ -25,3 +25,5 @@ IDE : IntelliJ 17.03
 - 호텔의 모든 예약 조회
 - 예약번호로 고객 자신의 예약 조회
 - 예약번호로 고객 자신의 예약 취소
+ 
+![UML-다이어그램](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d668c71-70b8-438d-92e9-6f16aea63de8/Untitled.png)
