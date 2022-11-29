@@ -14,7 +14,7 @@
 ## 🖥️ 프로젝트 소개
 자바를 이용한 호텔 예약 관리 시스템 미니 프로젝트.
 
-Team Notion Link : https://whip-noise-839.notion.site/2-43552daa198d4476a3ccdda14260072e
+Team Notion Link : https://whip-noise-839.notion.site/2-01b4c9d394164341b99517d52cb73053
 
 ## 🕰️ 개발 기간
 22.11.25일 - 22.11.29일
