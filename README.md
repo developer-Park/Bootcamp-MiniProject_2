@@ -26,4 +26,6 @@ IDE : IntelliJ 17.03
 - 예약번호로 고객 자신의 예약 조회
 - 예약번호로 고객 자신의 예약 취소
  
-![UML-다이어그램](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1d668c71-70b8-438d-92e9-6f16aea63de8/Untitled.png)
+ 
+![UML 다이어그램](https://user-images.githubusercontent.com/83831110/204422563-d171f9e7-47a8-4ac5-97dd-87e3d408c275.png)
+
