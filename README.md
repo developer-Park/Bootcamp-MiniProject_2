@@ -1,6 +1,7 @@
 # Java Project-Hotel Booking Management System
 <br>
-자바를 이용한 호텔 예약 관리 시스템 개발
+자바를 이용한 호텔 예약 관리 시스템 개발<br>
+
 ## 목차
 
 
